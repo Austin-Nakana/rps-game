@@ -77,3 +77,27 @@ function playRound(humanChoice, computerChoice){
             return "You win! Scissors beat Paper";
     }
 }
+
+
+function playGame(){
+    
+    for(let i = 1; i <= rounds; i++){
+        console.log(`Round: ${i}`);
+        console.log(`Result: ${playRound(getHumanChoice(), getComputerChoice())}`);
+        console.log(`Computer score: ${computerScore}`);
+        console.log(`Your score: ${humanScore}`);
+        console.log("\n\n");
+    }
+
+    console.log(`You: ${humanScore} vs Computer: ${computerScore}`);
+    if (humanScore > computerScore) {
+        console.log("You won the game!");
+    }else 
+        if (humanScore < computerScore){
+            console.log("Computer won the game!");
+    }else{
+        console.log("It's a draw!");
+    }
+}
+
+playGame();
