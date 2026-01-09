@@ -5,6 +5,13 @@ const choice = {
     SCISSORS: "scissors"
 }
 
+//winsAgainst enum
+const winsAgainst = {
+    rock: "scissors",
+    paper: "rock",
+    scissors: "paper"
+}
+
 //Random number generation with both bounds inclusive
 function genRandomNum(lowerBound, upperBound){
     //handle float bounds 
