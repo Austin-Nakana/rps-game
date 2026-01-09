@@ -1,12 +1,14 @@
 //choice enum
 const choice = {
+
     ROCK: "rock",
     PAPER: "paper",
     SCISSORS: "scissors"
 }
 
-//winsAgainst enum
+// Maps each choice to the choice it beats (used to determine the winner)
 const winsAgainst = {
+
     rock: "scissors",
     paper: "rock",
     scissors: "paper"
@@ -14,6 +16,7 @@ const winsAgainst = {
 
 //Random number generation with both bounds inclusive
 function genRandomNum(lowerBound, upperBound){
+
     //handle float bounds 
     lowerBound = Math.ceil(lowerBound);
     upperBound = Math.floor(upperBound);
@@ -41,6 +44,7 @@ function getComputerChoice(){
 }
 
 function getHumanChoice(){
+
     let input = prompt("\nRock, Paper, Scizzors ?\n");
 
     return input;
@@ -51,7 +55,7 @@ let computerScore = 0;
 let rounds = 5;
 
 function playRound(humanChoice, computerChoice){
-
+    
     humanChoice = humanChoice.toLowerCase();
 
     if (humanChoice == computerChoice){
@@ -60,6 +64,12 @@ function playRound(humanChoice, computerChoice){
         return "Draw! ";
     }
 
+    /****Explaination of winsAgainst mapping****
+     - if humanChoice is 'rock', winsAgainst maps 'rock' to 'scissors'.
+     - Therefore, winsAgainst[humanChoice] returns 'scissors'.
+     - if 'scissors' is equal to computerChoice, human wins.
+     - Else, computer wins.
+    */
     if (winsAgainst[humanChoice] === computerChoice) {
         humanScore++;
         return `You win! ${humanChoice} beats ${computerChoice}`;
@@ -69,9 +79,9 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
-
+//game loop
 function playGame(){
-    
+
     for(let i = 1; i <= rounds; i++){
         console.log(`Round: ${i}`);
         console.log(`Result: ${playRound(getHumanChoice(), getComputerChoice())}`);
@@ -81,6 +91,7 @@ function playGame(){
     }
 
     console.log(`You: ${humanScore} vs Computer: ${computerScore}`);
+
     if (humanScore > computerScore) {
         console.log("You won the game!");
     }else 
