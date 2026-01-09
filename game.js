@@ -32,3 +32,10 @@ function getComputerChoice(){
             return choice.SCISSORS;
     }
 }
+
+function getHumanChoice(){
+    let choice = prompt("\nRock, Paper, Scizzors ?\n");
+
+    return choice;
+}
+    
