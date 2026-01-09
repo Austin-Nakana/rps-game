@@ -41,9 +41,9 @@ function getComputerChoice(){
 }
 
 function getHumanChoice(){
-    let choice = prompt("\nRock, Paper, Scizzors ?\n");
+    let input = prompt("\nRock, Paper, Scizzors ?\n");
 
-    return choice;
+    return input;
 }
     
 let humanScore = 0;
@@ -58,30 +58,14 @@ function playRound(humanChoice, computerChoice){
         humanScore++;
         computerScore++;
         return "Draw! ";
-    }else 
-        if(humanChoice == choice.ROCK && computerChoice == choice.PAPER){
-            computerScore++;
-            return "You lose! Paper beats Rock ";
-    }else 
-        if(humanChoice == choice.ROCK && computerChoice == choice.SCISSORS){
-            humanScore++;
-            return "You win! Rock beats Scissors";
-    }else 
-        if(humanChoice == choice.PAPER && computerChoice == choice.ROCK){
-            humanScore++;
-            return "You win! Paper beats Rock";
-    }else 
-        if(humanChoice == choice.PAPER && computerChoice == choice.SCISSORS){
-            computerScore++;
-            return "You lose! Scissors beat Paper";
-    }else 
-        if(humanChoice == choice.SCISSORS && computerChoice == choice.ROCK){
-            computerScore++;
-            return "You lose! Rock beats Scissors";
-    }else 
-        if(humanChoice == choice.SCISSORS && computerChoice == choice.PAPER){
-            humanScore++;
-            return "You win! Scissors beat Paper";
+    }
+
+    if (winsAgainst[humanChoice] === computerChoice) {
+        humanScore++;
+        return `You win! ${humanChoice} beats ${computerChoice}`;
+    }else{
+        computerScore++;
+        return `You lose! ${computerChoice} beats ${humanChoice}`;
     }
 }
 
