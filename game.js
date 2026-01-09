@@ -19,3 +19,16 @@ function genRandomNum(lowerBound, upperBound){
     return randomNum; // lowerBound <= randomNum <= upperBound
 }
 
+function getComputerChoice(){
+
+    let randNum = genRandomNum(1,3);
+
+    switch(randNum){
+        case 1:
+            return choice.ROCK;
+        case 2:
+            return  choice.PAPER;
+        case 3:
+            return choice.SCISSORS;
+    }
+}
